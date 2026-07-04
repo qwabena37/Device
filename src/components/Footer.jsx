@@ -6,7 +6,7 @@ export default function Footer() {
     "text-white/80 hover:text-white transition";
 
   return (
-    <footer className="bg-pink-600 text-white mt-16">
+    <footer className="bg-black text-yellow-700 mt-16">
       <div className="max-w-7xl mx-auto px-4 py-12">
 
         {/* GRID LAYOUT */}
@@ -14,12 +14,12 @@ export default function Footer() {
 
           {/* BRAND */}
           <div>
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-orange-500">
-              Shop With Aba
+            <h2 className="text-2xl font-bold text-gradient-to-r from-yellow-700 to-orange-500">
+              KASSTECH
             </h2>
 
             <p className="mt-3 text-white/90 text-sm leading-relaxed">
-              Quality bags and accessories designed for elegance, durability, and everyday style.
+              Quality laptops and accessories designed for performance, reliability and everyday use.
             </p>
           </div>
 
@@ -34,8 +34,8 @@ export default function Footer() {
                 Home
               </NavLink>
 
-              <NavLink to="/bags" className={linkClass}>
-                Bags
+              <NavLink to="/laptops" className={linkClass}>
+                Laptops
               </NavLink>
 
               <NavLink to="/contact" className={linkClass}>
@@ -83,10 +83,10 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="border-t border-white/20 mt-10 pt-6 text-sm text-white/80 flex flex-col md:flex-row justify-between gap-3">
-          <p>© 2026 Shop With Aba. All Rights Reserved.</p>
+          <p>© 2026 Kasstech. All Rights Reserved.</p>
           <p>Design by JayTech Solutions</p>
           <p className="text-white/60">
-            Made with ❤️ for stylish shoppers
+            Made with ❤️ for Tech Geeks
           </p>
         </div>
       </div>

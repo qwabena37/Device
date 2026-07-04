@@ -12,7 +12,7 @@ export default function DateTime() {
   }, []);
 
   return (
-    <div className="bg-pink-600 text-white text-center py-2 text-sm">
+    <div className="bg-white text-yellow-700 text-center py-2 text-sm">
       {dateTime.toLocaleString()}
     </div>
   );

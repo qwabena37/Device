@@ -1,17 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import { bags } from "../data/bags";
+import { laptops } from "../data/laptops";
 
 export default function ProductDetails() {
   const { id } = useParams();
 
-  const bag = bags.find((item) => item.id === Number(id));
+  const laptop = laptops.find((item) => item.id === Number(id));
 
   const [mainImage, setMainImage] = useState(
-    bag?.images?.[0] || ""
+    laptop?.images?.[0] || ""
   );
 
-  if (!bag) {
+  if (!laptop) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-20 text-center">
         <h1 className="text-3xl font-bold mb-4">
@@ -19,8 +19,8 @@ export default function ProductDetails() {
         </h1>
 
         <Link
-          to="/bags"
-          className="bg-pink-600 text-white px-6 py-3 rounded-lg"
+          to="/laptops"
+          className="bg-black text-yellow-700 px-6 py-3 rounded-lg"
         >
           Back to Products
         </Link>
@@ -28,10 +28,10 @@ export default function ProductDetails() {
     );
   }
 
-  const savings = bag.price - bag.discountPrice;
+  const savings = laptop.price - laptop.discountPrice;
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Shop With Aba, I'm interested in the ${bag.name} priced at GH₵${bag.discountPrice}.`
+    `Hello KASSTECH, I'm interested in the ${laptop.name} priced at GH₵${laptop.discountPrice}.`
   );
 
   return (
@@ -44,11 +44,11 @@ export default function ProductDetails() {
             Home
           </Link>
           {" / "}
-          <Link to="/bags" className="hover:text-pink-600">
-            Bags
+          <Link to="/laptops" className="hover:text-pink-600">
+            Laptops
           </Link>
           {" / "}
-          <span>{bag.name}</span>
+          <span>{laptop.name}</span>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -58,22 +58,22 @@ export default function ProductDetails() {
             <div className="bg-white rounded-2xl overflow-hidden shadow">
               <img
                 src={mainImage}
-                alt={bag.name}
+                alt={laptop.name}
                 className="w-full h-[500px] object-cover"
               />
             </div>
 
             <div className="flex gap-3 mt-4">
-              {bag.images.map((img, index) => (
+              {laptop.images.map((img, index) => (
                 <img
                   key={index}
                   src={img}
-                  alt={bag.name}
+                  alt={laptop.name}
                   onClick={() => setMainImage(img)}
                   className={`w-24 h-24 object-cover rounded-lg cursor-pointer border-2 ${
                     mainImage === img
-                      ? "border-pink-600"
-                      : "border-gray-200"
+                      ? "border-black"
+                      : "border-yellow-700"
                   }`}
                 />
               ))}
@@ -82,21 +82,21 @@ export default function ProductDetails() {
 
           {/* Details */}
           <div>
-            <span className="inline-block bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-medium">
+            <span className="inline-block bg-black text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
               Available
             </span>
 
             <h1 className="text-4xl font-bold mt-4">
-              {bag.name}
+              {laptop.name}
             </h1>
 
             <div className="mt-6 flex items-center gap-4">
               <span className="text-gray-400 line-through text-xl">
-                GH₵{bag.price}
+                GH₵{laptop.price}
               </span>
 
               <span className="text-4xl font-bold text-pink-600">
-                GH₵{bag.discountPrice}
+                GH₵{laptop.discountPrice}
               </span>
             </div>
 
@@ -106,23 +106,51 @@ export default function ProductDetails() {
               </span>
             </div>
 
-            <div className="mt-8 space-y-4">
-              <p>
-                <strong>Color:</strong> {bag.color}
-              </p>
+        <div className="mt-8 space-y-4">
+  <p>
+    <strong>Brand:</strong> {laptop.brand}
+  </p>
 
-              <p>
-                <strong>Material:</strong> {bag.material}
-              </p>
+  <p>
+    <strong>Processor:</strong> {laptop.processor}
+  </p>
 
-              <p>
-                <strong>Condition:</strong> Brand New
-              </p>
+  <p>
+    <strong>RAM:</strong> {laptop.ram}
+  </p>
 
-              <p>
-                <strong>Availability:</strong> In Stock
-              </p>
-            </div>
+  <p>
+    <strong>Storage:</strong> {laptop.storage}
+  </p>
+
+  <p>
+    <strong>Display:</strong> {laptop.display}
+  </p>
+
+  <p>
+    <strong>Graphics:</strong> {laptop.graphics}
+  </p>
+
+  <p>
+    <strong>Operating System:</strong> {laptop.os}
+  </p>
+
+  <p>
+    <strong>Battery:</strong> {laptop.battery}
+  </p>
+
+  <p>
+    <strong>Warranty:</strong> {laptop.warranty}
+  </p>
+
+  <p>
+    <strong>Condition:</strong> {laptop.condition}
+  </p>
+
+  <p>
+    <strong>Availability:</strong> In Stock
+  </p>
+</div>
 
             <div className="mt-8">
               <h2 className="text-xl font-semibold mb-3">
@@ -130,17 +158,17 @@ export default function ProductDetails() {
               </h2>
 
               <p className="text-gray-600 leading-relaxed">
-                This premium {bag.name.toLowerCase()} is
-                crafted with high-quality {bag.material.toLowerCase()}
-                and designed to complement both casual and
-                formal outfits. Durable, stylish and spacious
-                enough for your everyday essentials.
-              </p>
+  The {laptop.name} is a high-performance laptop powered by
+  {` ${laptop.processor}`}, featuring {` ${laptop.ram}`} RAM and
+  {` ${laptop.storage}`} storage. It is designed for business,
+  study, remote work, and everyday productivity while delivering
+  reliability, speed, and excellent performance.
+</p>
             </div>
 
             <div className="flex gap-4 mt-10">
               <a
-                href={`https://wa.me/233546526690?text=${whatsappMessage}`}
+                href={`https://wa.me/233540232557?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold"
@@ -149,7 +177,7 @@ export default function ProductDetails() {
               </a>
 
               <Link
-                to="/bags"
+                to="/laptops"
                 className="bg-gray-200 hover:bg-gray-300 px-8 py-4 rounded-xl font-semibold"
               >
                 Back to Products
@@ -165,13 +193,13 @@ export default function ProductDetails() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {bags
-              .filter((item) => item.id !== bag.id)
+            {laptops
+              .filter((item) => item.id !== laptop.id)
               .slice(0, 3)
               .map((item) => (
                 <Link
                   key={item.id}
-                  to={`/bags/${item.id}`}
+                  to={`/laptops/${item.id}`}
                   className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden"
                 >
                   <img
@@ -185,7 +213,7 @@ export default function ProductDetails() {
                       {item.name}
                     </h3>
 
-                    <p className="text-pink-600 font-bold mt-2">
+                    <p className="text-yellow-700 font-bold mt-2">
                       GH₵{item.discountPrice}
                     </p>
                   </div>

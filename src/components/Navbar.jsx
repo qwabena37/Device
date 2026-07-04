@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { FaInstagram, FaShoppingBag, FaTiktok, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaLaptop, FaTiktok, FaFacebook } from "react-icons/fa";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }) =>
     isActive
-      ? "text-pink-600 font-semibold"
-      : "hover:text-pink-600";
+      ? "text-white font-semibold"
+      : "hover:text-yellow-700";
 
   return (
-    <nav className="bg-white shadow-md relative z-50">
+    <nav className="bg-black shadow-md relative z-50">
 
       {/* NAVBAR TOP */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -20,25 +20,25 @@ export default function Navbar() {
         <h1 className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide">
   <NavLink
     to="/"
-    className="flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors duration-300"
+    className="flex items-center gap-2 text-yellow-600 hover:text-yellow-700 transition-colors duration-300"
   >
-    <FaShoppingBag className="text-pink-500 text-base sm:text-lg md:text-xl lg:text-2xl" />
+    <FaLaptop className="text-yellow-500 text-base sm:text-lg md:text-xl lg:text-2xl" />
 
-    <span className="bg-gradient-to-r from-pink-600 to-orange-500 bg-clip-text text-transparent">
-      SHOP WITH ABA
+    <span className="bg-gradient-to-r from-yellow-600 to-orange-500 bg-clip-text text-transparent">
+      KASSTECH
     </span>
   </NavLink>
 </h1>
 
         <div className="text-orange-500 hidden md:flex gap-6">
           <NavLink to="/" className={linkClass}>Home</NavLink>
-          <NavLink to="/bags" className={linkClass}>Bags</NavLink>
+          <NavLink to="/laptops" className={linkClass}>Laptops</NavLink>
           <NavLink to="/contact" className={linkClass}>Contact</NavLink>
         </div>
 
         {/* Hamburger */}
         <button
-  className="md:hidden text-3xl text-pink-600 p-1 relative z-50"
+  className="md:hidden text-3xl text-yellow-600 p-1 relative z-50"
   onClick={() => setOpen(!open)}
 >
   {open ? <HiOutlineX /> : <HiOutlineMenu />}
@@ -55,19 +55,19 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div
-  className={`md:hidden fixed top-0 right-0 h-64 w-64 bg-white shadow-xl transform transition-transform duration-300 z-50 ${
+  className={`md:hidden fixed text-gray-300 top-0 right-0 h-64 w-64 bg-black shadow-xl transform transition-transform duration-300 z-50 ${
     open ? "translate-x-0" : "translate-x-full"
   }`}
 >
 
         {/* LINKS */}
-        <div className="flex flex-col p-6 gap-6 text-lg font-medium">
+        <div className="flex flex-col p-4 gap-4 text-lg font-medium">
           <NavLink to="/" onClick={() => setOpen(false)} className={linkClass}>
             Home
           </NavLink>
 
-          <NavLink to="/bags" onClick={() => setOpen(false)} className={linkClass}>
-            Bags
+          <NavLink to="/laptops" onClick={() => setOpen(false)} className={linkClass}>
+            Laptops
           </NavLink>
 
           <NavLink to="/contact" onClick={() => setOpen(false)} className={linkClass}>
@@ -81,9 +81,9 @@ export default function Navbar() {
             Follow Us
           </p>
 
-          <div className="flex gap-5 text-pink-600 text-xl">
+          <div className="flex gap-5 text-yellow-700 text-xl">
             <a
-              href="https://www.instagram.com/shop.with.aba?igsh=OGlkOHZ1ODRqNnU2"
+              href="https://www.instagram.com/"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
@@ -92,7 +92,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="https://www.tiktok.com/@shop.with.aba?_r=1&_t=ZS-97duUn4G5zR"
+              href="https://www.tiktok.com/"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
@@ -101,11 +101,11 @@ export default function Navbar() {
             </a>
 
             <a
-              href="https://www.facebook.com/shop.with.aba"
+              href="https://www.facebook.com"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
-            >
+            > 
               <FaFacebook />
             </a>
           </div>
